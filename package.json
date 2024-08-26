@@ -1,15 +1,21 @@
 {
   "name": "firebase-online-chat",
-  "version": "0.0.3",
+  "version": "0.0.10",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
+  "files": [
+    "dist",
+    "styles"
+  ],
   "types": "./dist/index.d.ts",
   "homepage": "https://google.com",
   "repository": {
     "url": "https://github.com/SergeiKamalian/js-weatherSite/blob/master/main.js"
   },
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "copy:styles": "cpx 'src/styles/**/*' dist/styles",
+    "postbuild": "npm run copy:styles"
   },
   "keywords": [
     "firebase"
@@ -19,10 +25,13 @@
   "description": "Test package",
   "devDependencies": {
     "@types/react": "^18.3.4",
+    "cpx": "^1.5.0",
+    "rollup-plugin-postcss": "^4.0.2",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
   },
   "dependencies": {
+    "firebase": "^10.13.0",
     "react": "^18.3.1"
   }
 }
